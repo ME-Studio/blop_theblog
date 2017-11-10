@@ -1,0 +1,34 @@
+<% include partials/header %>
+	
+	<div class="ui main text container" id="topSpace">
+		<div class="ui huge header">Blop</div>
+		<div class="ui top attached segment">
+			<div class="ui divided items">
+				<% allBlogPosts.forEach(function(blogPost){ %>
+					<div class="item">
+						<div class="image">
+							<img src="<%= blogPost.image %>">
+						</div>
+						<div class="content">
+							<a class="header" href="/blogs/<%= blogPost._id %>"><%= blogPost.title %></a>
+							<div class="meta">
+								<span><%= blogPost.date.toDateString() %></span>
+							</div>
+							<div class="description">
+								<p><%- blogPost.body.substring(0, 100) %> . . . </p>
+							</div>
+							<div class="extra">
+								<a class="ui floated basic black button"  href="/blogs/<%= blogPost._id %>">
+									Read More
+									<i class="right chevron icon"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				<% }); %>	
+			</div>
+		</div>
+		
+	</div>
+	
+<% include partials/footer %>
